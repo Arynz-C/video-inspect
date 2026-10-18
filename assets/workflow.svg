@@ -1,0 +1,406 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 620" width="100%" height="100%">
+  <defs>
+    <style><![CDATA[
+      /* ============================================================
+         TOTAL LOOP: 25s
+         S1: 0% - 16% (0s - 4.0s)
+         S2: 17% - 34% (4.25s - 8.5s)
+         S3: 35% - 49% (8.75s - 12.25s)
+         S4: 50% - 65% (12.5s - 16.25s)
+         S5: 66% - 98% (16.5s - 24.5s)
+         ============================================================ */
+
+      /* Scene Viewport Fades */
+      @keyframes s1_view {
+        0%, 15% { opacity: 1; visibility: visible; }
+        17%, 97.5% { opacity: 0; visibility: hidden; }
+        99.5%, 100% { opacity: 1; visibility: visible; }
+      }
+      @keyframes s2_view {
+        0%, 16% { opacity: 0; visibility: hidden; }
+        18%, 33% { opacity: 1; visibility: visible; }
+        35%, 100% { opacity: 0; visibility: hidden; }
+      }
+      @keyframes s3_view {
+        0%, 34% { opacity: 0; visibility: hidden; }
+        36%, 48% { opacity: 1; visibility: visible; }
+        50%, 100% { opacity: 0; visibility: hidden; }
+      }
+      @keyframes s4_view {
+        0%, 49% { opacity: 0; visibility: hidden; }
+        51%, 64% { opacity: 1; visibility: visible; }
+        66%, 100% { opacity: 0; visibility: hidden; }
+      }
+      @keyframes s5_view {
+        0%, 65% { opacity: 0; visibility: hidden; }
+        67%, 97.5% { opacity: 1; visibility: visible; }
+        99.5%, 100% { opacity: 0; visibility: hidden; }
+      }
+
+      /* Cursor Blink */
+      @keyframes cursorBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes dotPulse {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+
+      /* S1 System Launch Message */
+      @keyframes s1_launch {
+        0%, 9.5% { opacity: 0; }
+        11%, 15% { opacity: 1; }
+        16.5%, 100% { opacity: 0; }
+      }
+
+      /* S2 Typing: add skill https://github.com/Arynz-C/video-inspect */
+      @keyframes s2_stream1 {
+        0%, 26% { opacity: 0; }
+        27.5%, 100% { opacity: 1; }
+      }
+      @keyframes s2_stream2 {
+        0%, 28% { opacity: 0; }
+        29.5%, 100% { opacity: 1; }
+      }
+      @keyframes s2_stream3 {
+        0%, 30.5% { opacity: 0; }
+        32%, 100% { opacity: 1; }
+      }
+
+      /* S3 Typing: /skills */
+      @keyframes s3_dropdown {
+        0%, 43% { opacity: 0; }
+        45%, 100% { opacity: 1; }
+      }
+
+      /* S4 Typing: video-inspect */
+      @keyframes s4_select {
+        0%, 57% { opacity: 0; }
+        58.5%, 100% { opacity: 1; }
+      }
+
+      /* S5 Execution & Cascading Output */
+      @keyframes s5_thinking {
+        0%, 70% { opacity: 0; }
+        71.5%, 74% { opacity: 1; }
+        74.5%, 100% { opacity: 0; }
+      }
+      @keyframes s5_step1 {
+        0%, 74.5% { opacity: 0; }
+        76%, 100% { opacity: 1; }
+      }
+      @keyframes s5_step2 {
+        0%, 77% { opacity: 0; }
+        78.5%, 100% { opacity: 1; }
+      }
+      @keyframes s5_step3 {
+        0%, 79.5% { opacity: 0; }
+        81.5%, 100% { opacity: 1; }
+      }
+      @keyframes s5_step4 {
+        0%, 82.5% { opacity: 0; }
+        84.5%, 100% { opacity: 1; }
+      }
+      @keyframes s5_step5 {
+        0%, 85.5% { opacity: 0; }
+        87.5%, 100% { opacity: 1; }
+      }
+
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+      .c-prompt { fill: #c9d1d9; }
+      .c-white { fill: #ffffff; }
+      .c-dim { fill: #8b949e; }
+      .c-blue { fill: #388bfd; }
+      .c-purple { fill: #bc8cff; }
+      .c-peach { fill: #e89874; }
+      .c-orange { fill: #f0883e; }
+      .c-green { fill: #7ee787; }
+    ]]></style>
+  </defs>
+
+  <!-- Desktop Base Background -->
+  <rect width="1060" height="620" fill="#0c0e14"/>
+
+  <!-- ==================== SCENE 1: Windows Terminal ==================== -->
+  <g style="animation: s1_view 25s infinite;">
+    <rect width="1060" height="620" fill="#0c0e14"/>
+    <g transform="translate(28, 44)">
+      <text x="0" y="20" class="mono c-prompt" font-size="14.5">C:\Users\Arynz&gt;</text>
+      
+      <!-- Stepped Character Typing via SVG clip-path & synchronized cursor -->
+      <g transform="translate(138, 0)">
+        <g clip-path="url(#s1_clip)">
+          <text x="0" y="20" class="mono c-white" font-size="14.5">opencode</text>
+        </g>
+        <clipPath id="s1_clip">
+          <rect x="0" y="0" width="0" height="24">
+            <animate attributeName="width"
+                     calcMode="discrete"
+                     dur="25s"
+                     repeatCount="indefinite"
+                     keyTimes="0; 0.02; 0.028; 0.036; 0.044; 0.052; 0.06; 0.068; 0.076; 0.084; 0.16; 0.17; 1"
+                     values="0; 0; 9; 18; 27; 36; 45; 54; 63; 76; 76; 0; 0"/>
+          </rect>
+        </clipPath>
+
+        <!-- Moving Cursor (Translates with Each Typed Key) -->
+        <rect x="0" y="5" width="8" height="18" fill="#ffffff" style="animation: cursorBlink 0.6s infinite;">
+          <animateTransform attributeName="transform" type="translate"
+                            calcMode="discrete"
+                            dur="25s"
+                            repeatCount="indefinite"
+                            keyTimes="0; 0.02; 0.028; 0.036; 0.044; 0.052; 0.06; 0.068; 0.076; 0.084; 0.16; 0.17; 1"
+                            values="0,0; 0,0; 9,0; 18,0; 26,0; 35,0; 44,0; 52,0; 61,0; 70,0; 70,0; 0,0; 0,0"/>
+        </rect>
+      </g>
+    </g>
+
+    <!-- Delayed system response after Enter -->
+    <g style="animation: s1_launch 25s ease forwards infinite;" transform="translate(28, 76)">
+      <text x="0" y="16" class="mono c-dim" font-size="12">Starting OpenCode runtime environment...</text>
+    </g>
+  </g>
+
+  <!-- ==================== SCENE 2: OpenCode Install Skill (Image 3) ==================== -->
+  <g style="animation: s2_view 25s infinite;">
+    <rect width="1060" height="620" fill="#000000"/>
+    
+    <!-- Top prompt bar (dark box) -->
+    <rect x="0" y="0" width="1060" height="48" fill="#16181d"/>
+    <g transform="translate(18, 14)">
+      <!-- Animated Typing Bar via SVG clip-path width -->
+      <g clip-path="url(#s2_clip)">
+        <text x="0" y="18" class="mono c-white" font-size="14">add skill  https://github.com/Arynz-C/video-inspect</text>
+      </g>
+      <clipPath id="s2_clip">
+        <rect x="0" y="0" width="0" height="24">
+          <animate attributeName="width" values="0;0;480;480" keyTimes="0;0.18;0.25;1" dur="25s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <rect x="0" y="2" width="8" height="18" fill="#ffffff" style="animation: cursorBlink 0.6s infinite;">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,0; 482,0; 482,0" keyTimes="0;0.18;0.25;1" dur="25s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- Natural delayed streaming response lines -->
+    <g transform="translate(28, 90)">
+      <g style="animation: s2_stream1 25s ease forwards infinite;">
+        <text x="0" y="20" class="mono c-dim" font-size="13">Fetching skill from https://github.com/Arynz-C/video-inspect...</text>
+        <text x="0" y="44" class="mono c-green" font-size="13">&#x2714; Cloned to ~/.config/opencode/skills/video-inspect</text>
+      </g>
+      <g style="animation: s2_stream2 25s ease forwards infinite;">
+        <text x="0" y="68" class="mono c-white" font-size="13">&#x2714; Validated SKILL.md (name: "video-inspect", compatibility: opencode)</text>
+        <text x="0" y="92" class="mono c-dim" font-size="13">Prerequisites: ffmpeg (found), ffprobe (found)</text>
+      </g>
+      <g style="animation: s2_stream3 25s ease forwards infinite;">
+        <text x="0" y="122" class="mono c-peach" font-size="13.5">Skill "video-inspect" installed and ready to use.</text>
+      </g>
+    </g>
+
+    <!-- Bottom Input Box -->
+    <rect x="0" y="520" width="1060" height="60" fill="#16181d"/>
+    <rect x="18" y="536" width="9" height="18" fill="#ffffff" style="animation: cursorBlink 0.7s infinite;"/>
+    <text x="18" y="570" class="mono c-blue" font-size="13" font-weight="600">Build</text>
+    <text x="64" y="570" class="mono c-dim" font-size="13">&#183; claude-3-5-sonnet &#183; <tspan fill="#f59e0b">high</tspan></text>
+
+    <!-- Bottom status bar -->
+    <g transform="translate(18, 604)">
+      <text x="0" y="0" class="mono c-dim" font-size="11.5">&#183;&#183;&#183;&#183;&#183;&#183;&#183; esc <tspan class="c-dim">interrupt</tspan></text>
+      <text x="760" y="0" class="mono c-dim" font-size="11.5">shift+tab <tspan class="c-white">agents</tspan>  ctrl+p <tspan class="c-white">commands</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== SCENE 3: User types /skills (Image 4) ==================== -->
+  <g style="animation: s3_view 25s infinite;">
+    <rect width="1060" height="620" fill="#000000"/>
+    
+    <!-- OpenCode Main Box -->
+    <g transform="translate(120, 240)">
+      <rect width="820" height="110" rx="2" fill="#16181d" stroke="#252a34" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="110" stroke="#388bfd" stroke-width="3"/>
+
+      <!-- Typed /skills text char by char -->
+      <g transform="translate(18, 32)">
+        <g clip-path="url(#s3_clip)">
+          <text x="0" y="16" class="mono c-white" font-size="15">/skills</text>
+        </g>
+        <clipPath id="s3_clip">
+          <rect x="0" y="0" width="0" height="24">
+            <animate attributeName="width" values="0;0;80;80" keyTimes="0;0.36;0.42;1" dur="25s" repeatCount="indefinite"/>
+          </rect>
+        </clipPath>
+        <rect x="0" y="1" width="9" height="18" fill="#ffffff" style="animation: cursorBlink 0.6s infinite;">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,0; 70,0; 70,0" keyTimes="0;0.36;0.42;1" dur="25s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+
+      <!-- Bottom metadata -->
+      <text x="18" y="88" class="mono c-blue" font-size="13" font-weight="600">Build</text>
+      <text x="68" y="88" class="mono c-dim" font-size="13">&#183; claude-3-5-sonnet &#183; <tspan fill="#f59e0b">high</tspan></text>
+    </g>
+
+    <!-- Natural delayed suggestion dropdown popup -->
+    <g transform="translate(120, 150)">
+      <g style="animation: s3_dropdown 25s ease forwards infinite;">
+        <rect width="820" height="80" rx="2" fill="#0d1117" stroke="#262b36" stroke-width="1"/>
+        <rect x="0" y="0" width="820" height="24" fill="#e89874"/>
+        <text x="14" y="17" class="mono" fill="#000000" font-size="12" font-weight="700">/skills</text>
+        <text x="360" y="17" class="mono" fill="#000000" font-size="12" font-weight="700">Skills</text>
+        <text x="14" y="44" class="mono c-white" font-size="12">/excel:anti_patterns_guide</text>
+        <text x="360" y="44" class="mono c-dim" font-size="11.5">Common mistakes to avoid when using Excel</text>
+        <text x="14" y="66" class="mono c-white" font-size="12">/rea:audit_residual_unknowns</text>
+        <text x="360" y="66" class="mono c-dim" font-size="11.5">Review current residual-unknown targets</text>
+      </g>
+    </g>
+
+    <!-- Sub footer -->
+    <g transform="translate(120, 370)">
+      <text x="0" y="0" class="mono c-dim" font-size="13">~</text>
+      <text x="580" y="0" class="mono c-dim" font-size="12">shift+tab <tspan class="c-white">agents</tspan>  ctrl+p <tspan class="c-white">commands</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== SCENE 4: Skills Dialog and Selection (Image 5) ==================== -->
+  <g style="animation: s4_view 25s infinite;">
+    <rect width="1060" height="620" fill="#000000"/>
+
+    <!-- Floating Skills Modal (Image 5 Exact) -->
+    <g transform="translate(120, 190)">
+      <rect width="820" height="120" rx="2" fill="#0d1117" stroke="#262b36" stroke-width="1"/>
+
+      <!-- Header -->
+      <text x="18" y="28" class="mono c-white" font-size="14" font-weight="700">Skills</text>
+      <text x="770" y="28" class="mono c-dim" font-size="12">esc</text>
+
+      <!-- Search Query typing "video-inspect" char by char -->
+      <g transform="translate(18, 44)">
+        <g clip-path="url(#s4_clip)">
+          <text x="0" y="16" class="mono c-peach" font-size="14" font-weight="700">video-inspect</text>
+        </g>
+        <clipPath id="s4_clip">
+          <rect x="0" y="0" width="0" height="24">
+            <animate attributeName="width" values="0;0;140;140" keyTimes="0;0.51;0.57;1" dur="25s" repeatCount="indefinite"/>
+          </rect>
+        </clipPath>
+        <rect x="0" y="1" width="9" height="18" fill="#e89874" style="animation: cursorBlink 0.6s infinite;">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,0; 125,0; 125,0" keyTimes="0;0.51;0.57;1" dur="25s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+
+      <!-- Delayed selection highlight bar snaps into place -->
+      <g style="animation: s4_select 25s ease forwards infinite;">
+        <rect x="0" y="74" width="820" height="28" fill="#e89874"/>
+        <text x="18" y="93" class="mono" fill="#000000" font-size="13" font-weight="700">video-inspect</text>
+        <text x="240" y="93" class="mono" fill="#000000" font-size="12.5" font-weight="500">Read, describe, summarize, or analyze the content of a</text>
+      </g>
+    </g>
+
+    <!-- Sub Prompt Box (Unfocused) -->
+    <g transform="translate(120, 330)">
+      <rect width="820" height="70" rx="2" fill="#000000" stroke="#1c212a" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#388bfd" stroke-width="3"/>
+      <text x="18" y="28" class="mono c-dim" font-size="13">Ask anything... "Fix a TODO in the codebase"</text>
+      <text x="18" y="54" class="mono c-blue" font-size="12" font-weight="600">Build</text>
+      <text x="64" y="54" class="mono c-dim" font-size="12">&#183; claude-3-5-sonnet &#183; <tspan fill="#f59e0b">high</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== SCENE 5: Execution and Cascading Output ==================== -->
+  <g style="animation: s5_view 25s infinite;">
+    <rect width="1060" height="620" fill="#000000"/>
+
+    <!-- User Input Bar: Typing "@video-inspect Downloads\video.mp4" -->
+    <g transform="translate(24, 16)">
+      <rect width="1012" height="42" rx="2" fill="#16181d" stroke="#252a34" stroke-width="1"/>
+      <g transform="translate(16, 14)">
+        <g clip-path="url(#s5_clip)">
+          <text x="0" y="16" class="mono" font-size="14">
+            <tspan class="c-purple" font-weight="700">@video-inspect</tspan>
+            <tspan class="c-white"> Downloads\video.mp4</tspan>
+          </text>
+        </g>
+        <clipPath id="s5_clip">
+          <rect x="0" y="0" width="0" height="24">
+            <animate attributeName="width" values="0;0;380;380" keyTimes="0;0.66;0.70;1" dur="25s" repeatCount="indefinite"/>
+          </rect>
+        </clipPath>
+        <rect x="0" y="2" width="8" height="17" fill="#ffffff" style="animation: cursorBlink 0.6s infinite;">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,0; 332,0; 332,0" keyTimes="0;0.66;0.70;1" dur="25s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+
+    <!-- Natural processing animation indicator -->
+    <g style="animation: s5_thinking 25s ease forwards infinite;" transform="translate(36, 72)">
+      <circle cx="6" cy="6" r="3" fill="#e89874" style="animation: dotPulse 0.8s infinite;"/>
+      <circle cx="16" cy="6" r="3" fill="#e89874" style="animation: dotPulse 0.8s 0.2s infinite;"/>
+      <circle cx="26" cy="6" r="3" fill="#e89874" style="animation: dotPulse 0.8s 0.4s infinite;"/>
+      <text x="38" y="10" class="mono c-dim" font-size="12">Extracting frames via ffmpeg and reading with visual model...</text>
+    </g>
+
+    <!-- Cascading Streamed Response -->
+    <g transform="translate(24, 70)">
+      
+      <!-- Step 1: Tool Log -->
+      <g style="animation: s5_step1 25s ease forwards infinite;">
+        <text x="0" y="14" class="mono c-dim" font-size="11.5">&#9889; ffprobe + ffmpeg: 10 frames sampled from Downloads\video.mp4</text>
+      </g>
+
+      <!-- Step 2: Thought and Header -->
+      <g transform="translate(0, 26)">
+        <g style="animation: s5_step2 25s ease forwards infinite;">
+          <text x="0" y="12" class="mono c-orange" font-size="11.5">Thought &#183; 22.5s</text>
+          <text x="0" y="34" class="mono c-white" font-size="13">All 10 frames read. Here's what the video contains:</text>
+          <text x="0" y="58" class="mono c-purple" font-size="13" font-weight="700">Video Summary &#8212; Downloads\video.mp4</text>
+        </g>
+      </g>
+
+      <!-- Step 3: Metadata paragraph -->
+      <g transform="translate(0, 96)">
+        <g style="animation: s5_step3 25s ease forwards infinite;">
+          <text x="0" y="14" class="mono" font-size="12" fill="#ffffff">
+            <tspan class="c-orange" font-weight="700">Metadata:</tspan>
+            <tspan fill="#ffffff"> 31.2s, 1920&#215;1080, 59.94 fps, H.264 + AAC stereo, ~25 MB. A "UID: 841479900" watermark is visible</tspan>
+          </text>
+          <text x="0" y="32" class="mono" font-size="12" fill="#ffffff">
+            <tspan fill="#ffffff">bottom-right, so this is a capture from </tspan>
+            <tspan class="c-orange" font-weight="700">Genshin Impact</tspan>
+            <tspan fill="#ffffff"> &#8212; an animated character-story sequence telling the</tspan>
+          </text>
+          <text x="0" y="50" class="mono" font-size="12" fill="#ffffff">
+            <tspan fill="#ffffff">backstory of </tspan>
+            <tspan class="c-orange" font-weight="700">Il Dottore (Zandik)</tspan>
+            <tspan fill="#ffffff">, rendered in a soft watercolor art style.</tspan>
+          </text>
+          <text x="0" y="78" class="mono c-orange" font-size="12" font-weight="700">What happens (by timestamp):</text>
+        </g>
+      </g>
+
+      <!-- Step 4 and 5: Markdown Table Grid Streaming in -->
+      <g transform="translate(0, 186)">
+        <!-- Table Frame and Header -->
+        <g style="animation: s5_step4 25s ease forwards infinite;">
+          <rect width="1012" height="150" fill="#000000" stroke="#3e4451" stroke-width="1"/>
+          <line x1="0" y1="28" x2="1012" y2="28" stroke="#3e4451" stroke-width="1"/>
+          <line x1="120" y1="0" x2="120" y2="150" stroke="#3e4451" stroke-width="1"/>
+          <text x="14" y="19" class="mono c-purple" font-size="12" font-weight="700">Time</text>
+          <text x="134" y="19" class="mono c-purple" font-size="12" font-weight="700">Scene</text>
+
+          <!-- Table Row 1 -->
+          <text x="14" y="54" class="mono c-white" font-size="12">2.8s</text>
+          <text x="134" y="54" class="mono c-white" font-size="11.5">A teal-haired young man (young Zandik) sits at an ornate desk in a study/library, reading a</text>
+          <text x="134" y="70" class="mono c-white" font-size="11.5">letter, stacks of books and a lamp around him &#8212; warm green tones.</text>
+          <line x1="0" y1="84" x2="1012" y2="84" stroke="#3e4451" stroke-width="1"/>
+        </g>
+
+        <!-- Table Row 2 (Delayed stream) -->
+        <g style="animation: s5_step5 25s ease forwards infinite;">
+          <text x="14" y="110" class="mono c-white" font-size="12">5.7&#8211;8.5s</text>
+          <text x="134" y="110" class="mono c-white" font-size="11.5">He's now in a white lab coat, seen from behind, pinning research notes to a board in a dim pink-</text>
+          <text x="134" y="126" class="mono c-white" font-size="11.5">lit room. Subtitle: <tspan class="c-orange" font-style="italic">"He joined the Fatui, studied Eleazar in great depth, secured resources..."</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

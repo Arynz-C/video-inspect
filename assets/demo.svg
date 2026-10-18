@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes step1 {
+        0% { opacity: 1; }
+        100% { opacity: 1; }
+      }
+      @keyframes typeNpx {
+        0% { width: 0; }
+        12%, 100% { width: 190px; }
+      }
+      @keyframes showServerReady {
+        0%, 14% { opacity: 0; transform: translateY(4px); }
+        20%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes showOpenCode {
+        0%, 22% { opacity: 0; transform: translateY(4px); }
+        28%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes showSkillsMenu {
+        0%, 30% { opacity: 0; transform: translateY(6px); }
+        38%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes showPrompt {
+        0%, 46% { opacity: 0; transform: translateY(4px); }
+        52%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes showPipeline {
+        0%, 58% { opacity: 0; transform: translateY(6px); }
+        66%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes showAgentAnswer {
+        0%, 74% { opacity: 0; transform: translateY(4px); }
+        82%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes cursorBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+      .c-text { fill: #c9d1d9; }
+      .c-muted { fill: #8b949e; }
+      .c-green { fill: #7ee787; }
+      .c-blue { fill: #58a6ff; }
+      .c-white { fill: #f0f6fc; }
+      .c-purple { fill: #bc8cff; }
+      .c-amber { fill: #d29922; }
+    </style>
+    <clipPath id="npxClip">
+      <rect x="0" y="0" width="200" height="22"/>
+    </clipPath>
+  </defs>
+
+  <!-- Terminal Window Outer -->
+  <rect x="1" y="1" width="878" height="518" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Title Bar -->
+  <path d="M1 9 C1 4.5 4.5 1 9 1 L871 1 C875.5 1 879 4.5 879 9 L879 38 L1 38 Z" fill="#161b22"/>
+  <line x1="1" y1="38" x2="879" y2="38" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Window Controls -->
+  <circle cx="20" cy="19" r="6" fill="#ff5f56" stroke="#e0443e" stroke-width="0.5"/>
+  <circle cx="40" cy="19" r="6" fill="#ffbd2e" stroke="#dea123" stroke-width="0.5"/>
+  <circle cx="60" cy="19" r="6" fill="#27c93f" stroke="#1aab29" stroke-width="0.5"/>
+  <text x="440" y="24" text-anchor="middle" class="mono c-muted" font-size="12">OpenCode · video-inspect workflow</text>
+
+  <g transform="translate(28, 58)">
+    
+    <!-- STEP 1: npx mcp-use start -->
+    <g>
+      <text x="0" y="16" class="mono c-green" font-size="12">~/workspace</text>
+      <text x="100" y="16" class="mono c-muted" font-size="12">$</text>
+      <g transform="translate(116, 0)">
+        <g clip-path="url(#npxClip)">
+          <text x="0" y="16" class="mono c-white" font-size="12" style="animation: typeNpx 10s steps(18, end) infinite;">npx mcp-use start</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Server Ready Output -->
+    <g style="animation: showServerReady 10s ease forwards infinite;">
+      <text x="0" y="38" class="mono c-blue" font-size="11.5">ℹ [mcp-use]</text>
+      <text x="96" y="38" class="mono c-muted" font-size="11.5">Server ready at</text>
+      <text x="206" y="38" class="mono c-green" font-size="11.5">http://127.0.0.1:3000/mcp</text>
+      <text x="410" y="38" class="mono c-muted" font-size="11.5">(transport: stream-over-http)</text>
+    </g>
+
+    <!-- STEP 2: OpenCode launch & /skills command -->
+    <g style="animation: showOpenCode 10s ease forwards infinite;">
+      <text x="0" y="68" class="mono c-green" font-size="12">~/workspace</text>
+      <text x="100" y="68" class="mono c-muted" font-size="12">$</text>
+      <text x="116" y="68" class="mono c-white" font-size="12">opencode</text>
+      
+      <!-- OpenCode Banner / Header -->
+      <text x="0" y="94" class="mono c-purple" font-size="12">opencode</text>
+      <text x="74" y="94" class="mono c-muted" font-size="12">v0.8 · type</text>
+      <text x="156" y="94" class="mono c-white" font-size="12">/skills</text>
+      <text x="216" y="94" class="mono c-muted" font-size="12">to manage active agent capabilities</text>
+      
+      <!-- Slash command prompt -->
+      <text x="0" y="118" class="mono c-blue" font-size="13">></text>
+      <text x="18" y="118" class="mono c-white" font-size="13">/skills</text>
+      <rect x="76" y="105" width="7" height="15" fill="#58a6ff" style="animation: cursorBlink 0.8s infinite;"/>
+    </g>
+
+    <!-- STEP 3: /skills selector overlay -->
+    <g style="animation: showSkillsMenu 10s ease forwards infinite;" transform="translate(0, 132)">
+      <rect width="820" height="74" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="14" y="20" class="mono c-muted" font-size="11">Select skill to activate / inspect:</text>
+      
+      <!-- Selected item: video-inspect -->
+      <rect x="8" y="28" width="804" height="20" rx="3" fill="#1f6feb" opacity="0.25"/>
+      <text x="18" y="42" class="mono c-green" font-weight="600" font-size="12">● video-inspect</text>
+      <text x="146" y="42" class="mono c-text" font-size="11.5">— Extracts sampled JPEG frames + Whisper transcript for visual models</text>
+      <text x="734" y="42" class="mono c-green" font-size="11">[ACTIVE]</text>
+
+      <!-- Other item -->
+      <text x="18" y="62" class="mono c-muted" font-size="12">○ remotion-mcp</text>
+      <text x="146" y="62" class="mono c-muted" font-size="11.5">— Programmatic video rendering via React</text>
+    </g>
+
+    <!-- STEP 4: User prompt -->
+    <g style="animation: showPrompt 10s ease forwards infinite;" transform="translate(0, 222)">
+      <text x="0" y="16" class="mono c-blue" font-size="13">></text>
+      <text x="18" y="16" class="mono c-white" font-size="12.5">baca video di <tspan class="c-amber">./clip.mp4</tspan> — analisa isi dan sebutkan timestamp-nya</text>
+    </g>
+
+    <!-- STEP 5: Execution Pipeline -->
+    <g style="animation: showPipeline 10s ease forwards infinite;" transform="translate(0, 252)">
+      <rect width="820" height="96" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      
+      <!-- Sub-steps -->
+      <text x="14" y="20" class="mono c-muted" font-size="11.5">⚡ skill:video-inspect</text>
+      
+      <text x="14" y="40" class="mono c-blue" font-size="11.5">→ ffprobe:</text>
+      <text x="96" y="40" class="mono c-text" font-size="11.5">clip.mp4 · 1920x1080 · 30 fps · duration: 16.4s</text>
+      
+      <text x="14" y="60" class="mono c-blue" font-size="11.5">→ ffmpeg:</text>
+      <text x="96" y="60" class="mono c-text" font-size="11.5">Extracted 4 frames [00:00.0, 00:04.1, 00:08.2, 00:12.3] → %TEMP%/video-inspect/</text>
+      
+      <text x="14" y="80" class="mono c-purple" font-size="11.5">→ whisper:</text>
+      <text x="96" y="80" class="mono c-text" font-size="11.5">Audio transcribed (en) · timestamps aligned with frame indices</text>
+    </g>
+
+    <!-- STEP 6: Agent Response -->
+    <g style="animation: showAgentAnswer 10s ease forwards infinite;" transform="translate(0, 360)">
+      <rect width="820" height="88" rx="4" fill="#0d1117" stroke="#238636" stroke-width="1.2"/>
+      <rect x="0" y="0" width="4" height="88" rx="2" fill="#238636"/>
+      <text x="16" y="22" class="mono c-green" font-weight="600" font-size="12">✓ OpenCode Agent (Multimodal Vision):</text>
+      <text x="16" y="44" class="mono c-white" font-size="12">"Berdasarkan 4 frame dan transkrip audio dari <tspan class="c-amber">clip.mp4</tspan>:</text>
+      <text x="16" y="62" class="mono c-text" font-size="12">• <tspan class="c-blue">[00:00]</tspan> Intro title card · <tspan class="c-blue">[00:04]</tspan> Tampilan arsitektur sistem · <tspan class="c-blue">[00:12]</tspan> Demo integrasi CLI.</text>
+      <text x="16" y="78" class="mono c-muted" font-size="11.5">Audio menyebutkan bahwa semua pengujian socket lolos pada detik 00:10."</text>
+    </g>
+
+  </g>
+</svg>
